@@ -1,0 +1,11 @@
+#comment for ignore specific files
+secrets.txt
+pretendfile.txt
+
+#Ignore folders
+pretendfolder/
+pretendfolder2/
+
+#Ignore all files with specific extension
+*.fake
+*.log
