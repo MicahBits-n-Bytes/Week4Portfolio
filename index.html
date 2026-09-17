@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maya Hart | Software Developer</title>
+    <meta
+      name="description"
+      content="Personal portfolio for Maya Hart, a software developer with a focus on product design, front-end experiences, and thoughtful engineering."
+    />
+    <style>
+      :root {
+        --bg: #1b120d;
+        --bg-soft: #281a14;
+        --panel: #2f201a;
+        --panel-strong: #3a2a22;
+        --card: rgba(62, 44, 35, 0.9);
+        --card-alt: rgba(74, 54, 44, 0.92);
+        --text: #f7efe4;
+        --muted: #d4bfa8;
+        --soft: #f1dfc9;
+        --accent: #d29a69;
+        --accent-strong: #b67142;
+        --accent-warm: #f9d7ab;
+        --line: rgba(255, 232, 209, 0.15);
+        --shadow: 0 20px 50px rgba(10, 7, 6, 0.35);
+        --radius-xl: 30px;
+        --radius-lg: 22px;
+        --radius-md: 16px;
+        --radius-sm: 12px;
+        --max-width: 1180px;
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background:
+          radial-gradient(circle at top left, rgba(211, 157, 106, 0.12), transparent 26%),
+          radial-gradient(circle at bottom right, rgba(136, 94, 69, 0.18), transparent 20%),
+          var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(var(--max-width), calc(100% - 32px));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        backdrop-filter: blur(10px);
+        background: rgba(27, 18, 13, 0.75);
+        border-bottom: 1px solid var(--line);
+        z-index: 20;
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 78px;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, var(--accent-warm), var(--accent));
+        color: var(--bg);
+        font-weight: 800;
+        box-shadow: var(--shadow);
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        color: var(--muted);
+      }
+
+      nav a {
+        position: relative;
+        transition: color 0.2s ease;
+      }
+
+      nav a:hover {
+        color: var(--soft);
+      }
+
+      .nav-cta {
+        padding: 12px 18px;
+        border: 1px solid rgba(242, 213, 178, 0.25);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--soft);
+      }
+
+      .hero {
+        padding: 72px 0 48px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 40px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: rgba(210, 154, 105, 0.12);
+        color: var(--accent-warm);
+        border: 1px solid rgba(210, 154, 105, 0.26);
+        border-radius: 999px;
+        padding: 8px 14px;
+        font-size: 0.86rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(210, 154, 105, 0.15);
+      }
+
+      h1 {
+        margin: 20px 0 18px;
+        font-size: clamp(2.8rem, 5vw, 5rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+
+      .accent {
+        color: var(--accent-warm);
+      }
+
+      .lead {
+        max-width: 620px;
+        font-size: 1.12rem;
+        color: var(--muted);
+        margin-bottom: 28px;
+      }
+
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 22px;
+        border-radius: 999px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .button:hover {
+        transform: translateY(-1px);
+      }
+
+      .button.primary {
+        background: linear-gradient(135deg, var(--accent-warm), var(--accent));
+        color: var(--bg);
+        box-shadow: 0 18px 32px rgba(210, 154, 105, 0.28);
+      }
+
+      .button.secondary {
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--soft);
+        border: 1px solid rgba(255, 239, 225, 0.2);
+      }
+
+      .metrics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+      }
+
+      .metric {
+        min-width: 120px;
+      }
+
+      .metric strong {
+        display: block;
+        font-size: 1.8rem;
+        color: var(--soft);
+      }
+
+      .metric span {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .hero-card {
+        position: relative;
+      }
+
+      .profile-wrap {
+        position: relative;
+        z-index: 1;
+        padding: 18px;
+        background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+      }
+
+      .profile-image {
+        height: 540px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 24px;
+      }
+
+      .mini-badge {
+        position: absolute;
+        right: -10px;
+        bottom: 40px;
+        background: linear-gradient(135deg, #f4e6d4, #e4b989);
+        color: #2e1f19;
+        border-radius: 18px;
+        padding: 16px 18px;
+        box-shadow: var(--shadow);
+        z-index: 2;
+      }
+
+      .mini-badge strong {
+        display: block;
+        font-size: 1.7rem;
+      }
+
+      .content-section {
+        padding: 32px 0 18px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 26px;
+      }
+
+      .section-header h2 {
+        margin: 0;
+        font-size: clamp(2rem, 3vw, 2.7rem);
+        letter-spacing: -0.04em;
+      }
+
+      .section-tag {
+        color: var(--muted);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 30px;
+      }
+
+      .card {
+        background: linear-gradient(180deg, rgba(58,42,34,0.9), rgba(32,22,17,0.84));
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xl);
+        box-shadow: var(--shadow);
+      }
+
+      .about-copy {
+        padding: 28px;
+      }
+
+      .about-copy p {
+        color: var(--muted);
+        margin: 0 0 18px;
+        font-size: 1.03rem;
+      }
+
+      .about-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .about-list li {
+        padding: 12px 14px;
+        border-radius: var(--radius-md);
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.04);
+        color: var(--soft);
+      }
+
+      .about-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 20px;
+      }
+
+      .mini-photo {
+        border-radius: 22px;
+        height: 250px;
+        object-fit: cover;
+      }
+
+      .quote {
+        padding: 20px 18px;
+        background: rgba(242, 201, 157, 0.05);
+        border: 1px solid rgba(242, 201, 157, 0.14);
+        border-radius: var(--radius-lg);
+        color: var(--soft);
+        font-size: 1.05rem;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+      }
+
+      .project-card {
+        overflow: hidden;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .project-body {
+        padding: 22px 20px 20px;
+      }
+
+      .project-body h3 {
+        margin: 0 0 10px;
+        font-size: 1.45rem;
+      }
+
+      .project-body p {
+        margin: 0 0 16px;
+        color: var(--muted);
+      }
+
+      .tag-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .tag {
+        display: inline-block;
+        padding: 7px 10px;
+        background: rgba(210, 154, 105, 0.12);
+        color: var(--soft);
+        border: 1px solid rgba(210, 154, 105, 0.18);
+        border-radius: 999px;
+        font-size: 0.77rem;
+      }
+
+      .skills-layout {
+        display: grid;
+        grid-template-columns: 1fr 1.1fr;
+        gap: 26px;
+      }
+
+      .skills-panel,
+      .timeline-panel {
+        padding: 26px;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        margin-top: 18px;
+      }
+
+      .skill-item {
+        padding: 14px 16px;
+        background: rgba(255,255,255,0.02);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: var(--radius-md);
+      }
+
+      .skill-item strong {
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .skill-item span {
+        color: var(--muted);
+        font-size: 0.96rem;
+      }
+
+      .timeline {
+        margin-top: 18px;
+        display: grid;
+        gap: 18px;
+      }
+
+      .job {
+        position: relative;
+        padding-left: 18px;
+        border-left: 2px solid rgba(210,154,105,0.4);
+      }
+
+      .job::before {
+        content: "";
+        position: absolute;
+        left: -8px;
+        top: 8px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 0 6px rgba(210,154,105,0.15);
+      }
+
+      .job h3 {
+        margin: 0 0 6px;
+      }
+
+      .job-meta {
+        color: var(--accent-warm);
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+      }
+
+      .job p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .contact-wrap {
+        padding: 28px;
+        margin-bottom: 40px;
+      }
+
+      .contact-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        flex-wrap: wrap;
+      }
+
+      .contact-box p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      footer {
+        padding: 20px 0 48px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .about-grid,
+        .skills-layout,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .profile-image {
+          height: 420px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        nav {
+          display: none;
+        }
+
+        .hero {
+          padding-top: 44px;
+        }
+
+        .about-list,
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section-header {
+          align-items: start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <a href="#top" class="brand" aria-label="Maya Hart home">
+          <span class="brand-mark">M</span>
+          <span>Maya Hart</span>
+        </a>
+
+        <nav aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact" class="nav-cta">Let’s Talk</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="eyebrow">Software Developer</div>
+            <h1>
+              Building cozy digital<br />
+              experiences with <span class="accent">clarity</span>.
+            </h1>
+            <p class="lead">
+              I design and develop polished web products that blend thoughtful code,
+              warm user experiences, and practical solutions for real people.
+            </p>
+
+            <div class="hero-actions">
+              <a href="#projects" class="button primary">View Projects</a>
+              <a href="#contact" class="button secondary">Book a Call</a>
+            </div>
+
+            <div class="metrics" aria-label="Professional statistics">
+              <div class="metric">
+                <strong>6+</strong>
+                <span>years building</span>
+              </div>
+              <div class="metric">
+                <strong>24</strong>
+                <span>products shipped</span>
+              </div>
+              <div class="metric">
+                <strong>8k+</strong>
+                <span>users supported</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="profile-wrap">
+              <img
+                class="profile-image"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=900&q=80"
+                alt="Portrait of software developer Maya Hart"
+              />
+            </div>
+            <div class="mini-badge">
+              <span>Currently</span>
+              <strong>Open to work</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="content-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>About me</h2>
+            <span class="section-tag">Developer • Designer • Problem Solver</span>
+          </div>
+
+          <div class="about-grid">
+            <div class="card about-copy">
+              <p>
+                I’m Maya, a software developer focused on creating thoughtful products
+                that feel intuitive, welcoming, and easy to trust. My work sits at the
+                intersection of product thinking, front-end craft, and backend reliability.
+              </p>
+              <p>
+                I enjoy turning complex requirements into smooth experiences, whether
+                that means shipping a new feature, refactoring legacy code, or creating a
+                design system that helps teams ship faster with confidence.
+              </p>
+              <ul class="about-list">
+                <li>Web application development</li>
+                <li>Design systems</li>
+                <li>Accessibility</li>
+                <li>Team collaboration</li>
+                <li>Product strategy</li>
+                <li>Mentoring</li>
+              </ul>
+            </div>
+
+            <div class="card about-panel">
+              <img
+                class="mini-photo"
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80"
+                alt="Team collaborating around a table"
+              />
+              <div class="quote">
+                “I care deeply about building products that feel human, useful, and a little bit comforting.”
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="content-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Featured projects</h2>
+            <span class="section-tag">Selected work</span>
+          </div>
+
+          <div class="projects-grid">
+            <article class="card project-card">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                alt="Project dashboard mockup"
+              />
+              <div class="project-body">
+                <h3>Northstar Dashboard</h3>
+                <p>
+                  A performance analytics platform for teams that needed clearer reporting,
+                  cleaner workflows, and more intuitive decision-making tools.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">React</span>
+                  <span class="tag">Node</span>
+                  <span class="tag">Charts</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=900&q=80"
+                alt="Mobile app interface on a desk"
+              />
+              <div class="project-body">
+                <h3>Bloom & Co.</h3>
+                <p>
+                  An e-commerce and membership experience designed for a wellness brand,
+                  complete with streamlined onboarding and tailored product discovery.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">UI/UX</span>
+                  <span class="tag">Shopify</span>
+                  <span class="tag">A/B Testing</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="card project-card">
+              <img
+                class="project-image"
+                src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80"
+                alt="Laptop showing code"
+              />
+              <div class="project-body">
+                <h3>Harbor Ops</h3>
+                <p>
+                  A project operations tool helping teams stay organized across planning,
+                  delivery, and internal communication without clutter.
+                </p>
+                <div class="tag-row">
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">API</span>
+                  <span class="tag">Automation</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="content-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>Skills & experience</h2>
+            <span class="section-tag">What I bring</span>
+          </div>
+
+          <div class="skills-layout">
+            <div class="card skills-panel">
+              <h3>Core strengths</h3>
+              <div class="skills-grid">
+                <div class="skill-item">
+                  <strong>Frontend</strong>
+                  <span>React, JavaScript, HTML, CSS</span>
+                </div>
+                <div class="skill-item">
+                  <strong>Backend</strong>
+                  <span>Node.js, REST APIs, SQL</span>
+                </div>
+                <div class="skill-item">
+                  <strong>Design</strong>
+                  <span>UX thinking, wireframes, systems</span>
+                </div>
+                <div class="skill-item">
+                  <strong>Workflow</strong>
+                  <span>Agile, GitHub, testing, CI/CD</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card timeline-panel">
+              <h3>Experience</h3>
+              <div class="timeline">
+                <div class="job">
+                  <h3>Senior Frontend Developer</h3>
+                  <div class="job-meta">Northstar Studio · 2023 — Present</div>
+                  <p>
+                    Leading product interfaces, improving accessibility, and partnering with teams to ship polished experiences.
+                  </p>
+                </div>
+
+                <div class="job">
+                  <h3>Software Developer</h3>
+                  <div class="job-meta">Bloom Labs · 2020 — 2023</div>
+                  <p>
+                    Built customer-facing apps, optimized performance, and supported feature delivery across product and marketing teams.
+                  </p>
+                </div>
+
+                <div class="job">
+                  <h3>Web Developer</h3>
+                  <div class="job-meta">Freelance · 2018 — 2020</div>
+                  <p>
+                    Helped startups and small businesses launch faster with simple, strategic, and responsive web experiences.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="content-section">
+        <div class="container">
+          <div class="card contact-wrap">
+            <div class="contact-box">
+              <div>
+                <div class="eyebrow" style="margin-bottom: 12px;">Let’s build something lovely</div>
+                <h2 style="margin: 0 0 10px; font-size: clamp(2rem, 4vw, 3rem);">Ready to create a smarter product?</h2>
+                <p>Available for product design, front-end engineering, and full-stack collaborations.</p>
+              </div>
+
+              <a href="mailto:maya@portfolio.dev" class="button primary">maya@portfolio.dev</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        © 2026 Maya Hart — Built with warmth, care, and a little caffeine.
+      </div>
+    </footer>
+  </body>
+</html>
